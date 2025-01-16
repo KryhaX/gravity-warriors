@@ -7,11 +7,65 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Scoreboard</title>
-    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'scoreboard.css' %}">
 </head>
 <body>
-<h1>Scoreboard</h1>
-<a href="{% url 'home' %}"><button>Home</button></a>
+    <h1>Scoreboard</h1>
+    <a href="{% url 'home' %}"><button>Home</button></a>
 
+    <a href="{% url 'new_Dips' %}"><button>Add Dips</button></a>
+    <a href="{% url 'new_Pull_ups' %}"><button>Add PullUps</button></a>
+
+    <div class="Scoreboard">
+
+        <div class="dips">
+            <table>
+                <thead>
+
+                <th class="dip_header">DIPS</th>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Weight (kg)</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for rank, d in ranked_dips %}
+                    <tr>
+                        <td>{{ rank }} st.</td>
+                        <td>{{ d.username }} </td>
+                        <td>{{ d.weight }} kg</td>
+                        <td>{{ d.date }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pull-ups">
+            <table>
+                <thead>
+                <th class="pullups_header">PULLUPS</th>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Weight (kg)</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for rank, p in ranked_pull_ups %}
+                    <tr>
+                        <td>{{ rank }} st.</td>
+                        <td>{{ p.username }} </td>
+                        <td>{{ p.weight }} kg</td>
+                        <td>{{ p.date }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
