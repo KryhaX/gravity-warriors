@@ -1,0 +1,72 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Container for both divs */
+.Scoreboard {
+    display: flex;
+    height: 80vh; /* Adjust the height of the scoreboard */
+    width: 100%;
+    margin-top: 20px;
+}
+
+.dips, .pull-ups {
+    flex: 1; /* Each div takes equal space */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+}
+
+/* Styling for the tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #fff;
+}
+
+th {
+    background-color: #2980b9;
+}
+
+.dips td {
+    background-color: #3498db;
+}
+
+th.dip_header {
+    background-color: #3498db;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.pull-ups td {
+    background-color: #e74c3c;
+}
+
+.pull-ups th {
+    background-color: #c0392b;
+}
+
+th.pullups_header {
+    background-color: #c0392b;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
