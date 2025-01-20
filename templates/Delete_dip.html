@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Delete Dip</title>
+</head>
+<body>
+
+  <h1>Are you sure you want to delete "{{ dip }}" ?</h1>
+
+  <form method="POST">
+      {% csrf_token %}
+      <button type="submit">Delete Dip</button>
+      <a href="{% url 'scoreboard_list'  %}">Back</a>
+  </form>
+
+</body>
+</html>
