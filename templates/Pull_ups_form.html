@@ -12,6 +12,8 @@
         {% csrf_token %}
         {{ form }}
         <button type="submit">Add PullUps</button>
+        <a href="{% url 'delete_Pull_ups' pullups_id %}">Delete</a>
+        <a href="{% url 'scoreboard_list' %}">Back</a>
     </form>
 </body>
 </html>
