@@ -13,6 +13,8 @@
         {% csrf_token %}
         {{ form }}
         <button type="submit">Add Dips</button>
+        <a href="{% url 'delete_Dips' dip_id %}">Delete Dip</a>
+        <a href="{% url 'scoreboard_list' %}">Back</a>
     </form>
 </body>
 </html>
