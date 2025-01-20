@@ -1,10 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+
+    <title>Delete PullUp</title>
 </head>
 <body>
-$END$
+
+  <h1>Are you sure you want to delete "{{ pullup }}" ?</h1>
+
+      <form method="POST">
+      {% csrf_token %}
+      <button type="submit">Delete PullUp</button>
+      <a href="{% url 'scoreboard_list'  %}">Back</a>
+  </form>
 </body>
 </html>
