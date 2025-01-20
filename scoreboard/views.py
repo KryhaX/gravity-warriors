@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Dips , Pull_ups
 from .forms import DipsForm, Pull_upsForm
 
@@ -26,7 +26,7 @@ def new_Pull_ups(request):
         form.save()
         return redirect('scoreboard_list')
 
-    return render(request , 'add_Pull_ups.html', {'form': form})
+    return render(request , 'Pull_ups_form.html', {'form': form})
 
 def new_Dips(request):
     form = DipsForm(request.POST or None)
@@ -35,4 +35,47 @@ def new_Dips(request):
         form.save()
         return redirect('scoreboard_list')
 
-    return render(request , 'add_Dips.html', {'form': form})
+    return render(request , 'Dips_form.html', {'form': form})
+
+
+def edit_Dips(request, dip_id):
+
+    dip = get_object_or_404(Dips, pk=dip_id)
+
+    form = DipsForm(request.POST or None, instance=dip )
+
+    if form.is_valid():
+        form.save()
+        return redirect('scoreboard_list')
+
+    return render(request, 'Dips_form.html', {'form': form, 'dip_id':dip_id})
+
+def edit_Pull_ups(request, pullups_id):
+    pullups = get_object_or_404(Pull_ups, pk=pullups_id)
+
+    form = Pull_upsForm(request.POST or None, instance=pullups)
+
+    if form.is_valid():
+        form.save()
+        return redirect('scoreboard_list')
+
+    return render(request, 'Pull_ups_form.html', {'form': form,'pullups_id':pullups_id})
+
+def delete_Dips(request, dip_id):
+
+    dip = get_object_or_404(Dips, pk=dip_id)
+
+    if request.method == 'POST':
+        dip.delete()
+        return redirect('scoreboard_list')
+
+    return render(request, 'Delete_dip.html', {'dip': dip})
+
+def delete_Pull_ups(request, pullups_id):
+    pullup = get_object_or_404(Pull_ups, pk=pullups_id)
+
+    if request.method == 'POST':
+        pullup.delete()
+        return redirect('scoreboard_list')
+
+    return render(request, 'Delete_pullup.html', {'pullup': pullup})
