@@ -33,11 +33,12 @@
                 <tbody>
                 {% for rank, d in ranked_dips %}
                     <tr>
-                        <td>{{ rank }} st.</td>
+                        <td>{{ rank }} st. <a href="{% url 'edit_Dips' d.id %}">edit</a></td>
                         <td>{{ d.username }} </td>
                         <td>{{ d.weight }} kg</td>
                         <td>{{ d.date }}</td>
                     </tr>
+
                 {% endfor %}
                 </tbody>
             </table>
@@ -57,7 +58,7 @@
                 <tbody>
                 {% for rank, p in ranked_pull_ups %}
                     <tr>
-                        <td>{{ rank }} st.</td>
+                        <td>{{ rank }} st. <a href="{% url 'edit_Pull_ups' p.id %}">edit</a></td>
                         <td>{{ p.username }} </td>
                         <td>{{ p.weight }} kg</td>
                         <td>{{ p.date }} </td>
