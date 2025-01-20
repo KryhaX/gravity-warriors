@@ -38,7 +38,21 @@ GravityWarriors is a Django-based web application designed for our calisthenics 
 - **Version Control**: Git  
 
 ---
+## Example Usage
 
+The scoreboard allows you to display a list of scores and manage the entries. Below, you will find instructions on how to interact with the scoreboard, as well as images illustrating the interface.
+
+### View Scoreboard
+
+Here is an example of how the scoreboard looks when you view it:
+
+![img.png](img.png)
+
+### Add, Edit, and Delete Score Entries
+
+The scoreboard allows you to manage entries through a modal. You can add a new entry, edit an existing one, or delete an entry from the scoreboard. Below is a screenshot of the modal used for managing the scoreboard:
+
+![img_1.png](img_1.png)
 ## 🚀 Installation
 
 1. Clone the repository:
