@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Dips , Pull_ups
 from .forms import DipsForm, Pull_upsForm
@@ -19,6 +20,7 @@ def scoreboard_list(request):
     return render(request, 'scoreboard.html', {'dips': dips, 'pull_ups': pull_ups,
                                                'ranked_dips': ranked_dips, 'ranked_pull_ups': ranked_pull_ups })
 
+@login_required
 def new_Pull_ups(request):
     form = Pull_upsForm(request.POST or None)
 
@@ -28,6 +30,7 @@ def new_Pull_ups(request):
 
     return render(request , 'Pull_ups_form.html', {'form': form})
 
+@login_required
 def new_Dips(request):
     form = DipsForm(request.POST or None)
 
@@ -37,7 +40,7 @@ def new_Dips(request):
 
     return render(request , 'Dips_form.html', {'form': form})
 
-
+@login_required
 def edit_Dips(request, dip_id):
 
     dip = get_object_or_404(Dips, pk=dip_id)
@@ -50,6 +53,7 @@ def edit_Dips(request, dip_id):
 
     return render(request, 'Dips_form.html', {'form': form, 'dip_id':dip_id})
 
+@login_required
 def edit_Pull_ups(request, pullups_id):
     pullups = get_object_or_404(Pull_ups, pk=pullups_id)
 
@@ -61,6 +65,7 @@ def edit_Pull_ups(request, pullups_id):
 
     return render(request, 'Pull_ups_form.html', {'form': form,'pullups_id':pullups_id})
 
+@login_required
 def delete_Dips(request, dip_id):
 
     dip = get_object_or_404(Dips, pk=dip_id)
@@ -71,6 +76,7 @@ def delete_Dips(request, dip_id):
 
     return render(request, 'Delete_dip.html', {'dip': dip})
 
+@login_required
 def delete_Pull_ups(request, pullups_id):
     pullup = get_object_or_404(Pull_ups, pk=pullups_id)
 

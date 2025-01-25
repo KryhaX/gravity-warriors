@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="{% static 'scoreboard.css' %}">
 </head>
 <body>
+
+     {% if user.is_authenticated %}
+    Welcome {{ user.username }} <br>
+    <form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+    </form>
+
+    {% else %}
+    <a href="{% url 'login'  %}">Login</a>
+    {% endif %}
+
+    <hr>
     <h1>Scoreboard</h1>
     <a href="{% url 'home' %}"><button>Home</button></a>
 
@@ -33,7 +46,11 @@
                 <tbody>
                 {% for rank, d in ranked_dips %}
                     <tr>
+                        {% if user.is_authenticated %}
                         <td>{{ rank }} st. <a href="{% url 'edit_Dips' d.id %}">edit</a></td>
+                        {% else %}
+                        <td>{{ rank }} st.</td>
+                        {% endif %}
                         <td>{{ d.username }} </td>
                         <td>{{ d.weight }} kg</td>
                         <td>{{ d.date }}</td>
@@ -58,7 +75,11 @@
                 <tbody>
                 {% for rank, p in ranked_pull_ups %}
                     <tr>
+                        {% if user.is_authenticated %}
                         <td>{{ rank }} st. <a href="{% url 'edit_Pull_ups' p.id %}">edit</a></td>
+                        {% else %}
+                        <td>{{ rank }} st.</a></td>
+                        {% endif %}
                         <td>{{ p.username }} </td>
                         <td>{{ p.weight }} kg</td>
                         <td>{{ p.date }} </td>
