@@ -46,7 +46,7 @@
                 <tbody>
                 {% for rank, d in ranked_dips %}
                     <tr>
-                        {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
                         <td>{{ rank }} st. <a href="{% url 'edit_Dips' d.id %}">edit</a></td>
                         {% else %}
                         <td>{{ rank }} st.</td>
@@ -75,7 +75,7 @@
                 <tbody>
                 {% for rank, p in ranked_pull_ups %}
                     <tr>
-                        {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
                         <td>{{ rank }} st. <a href="{% url 'edit_Pull_ups' p.id %}">edit</a></td>
                         {% else %}
                         <td>{{ rank }} st.</a></td>
